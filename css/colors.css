@@ -53,6 +53,7 @@
 .arlo_tm_all_wrap[data-color="green"] .arlo_tm_news .news_list ul li .details .title a:hover{color: #66B95C;}
 .arlo_tm_all_wrap[data-color="green"] .arlo_tm_news .news_list ul li .details .date a:hover{color: #66B95C;}
 .arlo_tm_all_wrap[data-color="green"] .arlo_tm_modalbox_news .description blockquote{border-left-color: #66B95C;}
+.arlo_tm_all_wrap[data-color='green'] .arlo_tm_content .text_typing{color: #66B95C}
 .arlo_tm_all_wrap[data-color="green"] .cursor-inner.cursor-hover{background-color: #66B95C;}
 .arlo_tm_all_wrap[data-color="green"] .cursor-outer{border-color: #66B95C;}
 .arlo_tm_all_wrap[data-color="green"] .cursor-inner{background-color: #66B95C;}
