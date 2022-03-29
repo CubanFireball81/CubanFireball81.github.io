@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
+
+
+/* /////////////////////// */
+/* GLOBAL VARIABLES */
+/* ///////////////////// */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --text-color: #00aa00;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --dull-white-color: #cccccc;
+    --black-background-color: rgba(0, 0, 0, 0.7);
+    --green-border-color: rgba(32, 194, 14, 0.6);
+    --black-wb-body-color: #111111;
+    --bright-text-color: #00ff00;
+    --dull-black-color: rgba(0, 0, 0, 0.75);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* ////////// */
+/* PRELOADER */
+/* //////// */
+
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 99999;
+    display: flex;
+}
+
+#preloader:before,
+#preloader:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+    background-color: #000;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+#preloader:after {
+    left: auto;
+    right: 0;
+}
+
+#preloader .loader_line {
+    margin: auto;
+    width: 1px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+}
+
+.loader_line:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 0%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-color: var(--bright-text-color);
+    -webkit-animation: lineheight 1000ms ease-in-out 0s forwards;
+    -o-animation: lineheight 1000ms ease-in-out 0s forwards;
+    animation: lineheight 1000ms ease-in-out 0s forwards;
+}
+
+.loader_line:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--text-color);
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-animation: lineround 1200ms linear 0s infinite;
+    -o-animation: lineround 1200ms linear 0s infinite;
+    animation: lineround 1200ms linear 0s infinite;
+    animation-delay: 2000ms;
+}
+
+@keyframes lineheight {
+    0% {
+        height: 0%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes lineround {
+    0% {
+        -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    100% {
+        -webkit-transform: translateY(200%);
+        -ms-transform: translateY(200%);
+        -o-transform: translateY(200%);
+        transform: translateY(200%);
+    }
+}
+
+/* HIDES ALL PRELOADER */
+.preloaded .loader_line:after {
+    opacity: 0;
+}
+
+.preloaded .loader_line {
+    opacity: 0;
+    height: 100% !important;
+}
+
+.preloaded:before,
+.preloaded:after {
+    -webkit-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+    -o-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+    animation: preloadedzero 300ms ease-in-out 500ms forwards;
+}
+
+@keyframes preloadedzero {
+    0% {
+        width: 50%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}
+
+
+/* ////////////// */
+/* GLOBAL STYLES */
+/* //////////// */
+
+body {
+    font-family: 'Roboto Mono', sans-serif;
+    background: url('../assets/bg-img/bgImg.jpg');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--dull-black-color);
+    background-color: var(--black-color);
+    font-size: 18px;
+    line-height: 1.6;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+h1 {
+    color: var(--text-color);
+    font-size: 40px;
+    letter-spacing: -5px;
+    margin-bottom: 20px;
+    background-color: var(--black-background-color);
+}
+
+h2 {
+    color: var(--text-color);
+}
+
+h3 {
+    margin-bottom: 10px;
+    background-color: var(--black-background-color);
+    color: var(--white-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+p {
+    margin: 20px 0;
+}
+
+
+/* /////////////// */
+/* NAVBAR SECTION */
+/* ///////////// */
+
+.navbar-container {
+    display: flex;
+    width: 100vw;
+    top: 0;
+    position: fixed;
+    justify-content: center;
+    z-index: 100;
+}
+
+.navbar {
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+    background-color: var(--black-background-color);
+    position: fixed;
+}
+
+nav ul li {
+    color: var(--text-color);
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+nav ul li:hover,
+nav ul li a:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(110%);
+    color: var(--bright-text-color);
+}
+
+
+/* /////////////// */
+/* SCREEN CONTENT */
+/* ///////////// */
+
+.screen-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    width: 650px;
+    height: 550px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-background-color);
+    border-radius: 16px;
+    border: 1px dashed var(--bright-text-color);
+}
+
+.screen-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.screen-content ul {
+    background-color: var(--black-background-color);
+    padding: 8px;
+}
+
+.screen-content ul li:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(120%);
+}
+
+.screen-content ul li a:hover {
+    color: var(--bright-text-color)
+}
+
+
+/* ////////////////////////// */
+/* VIDEO IN SCREEN CONTAINER */
+/* //////////////////////// */
+
+#video {
+    width: 649px;
+    height: 549px;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+    border-radius: 15px;
+}
+
+
+/* ////////////// */
+/* ABOUT SECTION */
+/* //////////// */
+
+.profile-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    margin-top: 30px;
+}
+
+#my-img {
+    border-radius: 10%;
+    width: 30%;
+    border: 1.5px dashed var(--bright-text-color);
+}
+
+#about-content p span {
+    color: var(--bright-text-color);
+    font-size: 20px;
+}
+
+.social-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialLogo {
+    max-height: 2rem;
+    transition: transform 0.5s ease-in-out;
+    opacity: 0.5;
+    margin: 0 10px;
+}
+
+.socialLogo:hover {
+    transform: scale(-1, 1) scale(1);
+    background-color: var(--bright-text-color);
+}
+
+/* Bootstrap Carousel */
+.carousel-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    margin: 10% 0;
+}
+
+.carousel-inner {
+    width: 200px;
+    height: 200px;
+}
+
+.carousel-item img {
+    width: 200px;
+    height: 200px;
+}
+
+
+/* //////////////// */
+/* PROJECT SECTION */
+/* ////////////// */
+
+.projects-content {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+.projects-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* CSS CARDS STYLING */
+
+#projects-content .projects-list .card {
+    box-shadow: 0 4px 8px 3px var(--text-color);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: var(--black-wb-body-color);
+    text-align: center;
+    margin: 20px;
+    width: 50%;
+    /* 5px rounded corners */
+}
+
+/* On mouse-over, add a deeper shadow */
+#projects-content .projects-list .card:hover {
+    border: 2px solid var(--bright-text-color);
+}
+
+
+/* Add rounded corners to the top left and the top right corner of the image */
+#projects-content .projects-list .card img {
+    border-radius: 5px 5px 0 0;
+    height: 250px;
+}
+
+#projects-content .projects-list .card .card-body a .btn{
+    bottom: 0;
+}
+
+
+
+/* /////////////////////// */
+/* CERTIFICATIONS SECTION */
+/*////////////////////// */
+
+
+/* ////////////// */
+/* VIDEO SECTION */
+/* //////////// */
+
+
+.myVideo iframe {
+    max-width: 95%;
+}
+
+/* /////////////// */
+/* WINBOX STYLING */
+/* ///////////// */
+
+.wb-body {
+    background: var(--black-color);
+    color: var(--text-color);
+    padding: 20px;
+    z-index: 99;
+}
+
+.links:hover {
+    color: var(--bright-text-color);
+}
+
+.hidden {
+    display: none;
+}
+
+.cursor {
+    font-weight: 700;
+    animation: 1s blink step-end infinite;
+}
+
+
+/* /////////////// */
+/* FOOTER SECTION */
+/* /////////////// */
+
+.footer-container {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    background-color: var(--dull-black-color);
+    padding: 10px;
+    border: 1px dashed var(--text-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: var(--bright-text-color);
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: var(--text-color);
+    }
+}
+
+
+/* ////////////// */
+/* MEDIA QUERIES */
+/* //////////// */
+
+
+@media screen and (max-width: 280px) {
+    .screen {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .screen-content {
+        font-size: 10px;
+        transform: scale(90%);
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .screen {
+        transform: scale(90%);
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #video {
+        display: none;
+    }
+
+    .screen-container {
+        transform: scaleX(80%);
+    }
+
+    .screen-content {
+        font-size: 20px;
+    }
+
+    .navbar {
+        width: 100vw;
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 655px) {
+    #video {
+        transform: scaleX(85%);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .screen-container {
+        transform: scale(80%);
+    }
+}
+
+@media (max-width: 1040px) {
+    #preloader {
+        display: none;
+    }
+
+}
