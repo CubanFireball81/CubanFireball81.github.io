@@ -58,8 +58,8 @@ projects.addEventListener('click', () => {
 certifications.addEventListener('click', () => {
     const certificationsBox = new WinBox({
         title: 'My Certifications',
-        width: '650px',
-        height: '600px',
+        width: '980px',
+        height: '700px',
         x: "center",
         y: "center",
         top: 55,

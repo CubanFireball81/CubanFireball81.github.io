@@ -434,7 +434,7 @@ nav ul li a:hover {
     height: 250px;
 }
 
-#projects-content .projects-list .card .card-body a .btn{
+#projects-content .projects-list .card .card-body a .btn {
     bottom: 0;
 }
 
@@ -444,6 +444,17 @@ nav ul li a:hover {
 /* CERTIFICATIONS SECTION */
 /*////////////////////// */
 
+.certifications-content {
+    width: 100%;
+    height: 100%;
+}
+
+.certificate-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+}
 
 /* ////////////// */
 /* VIDEO SECTION */
