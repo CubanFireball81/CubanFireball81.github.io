@@ -911,16 +911,10 @@ a.totop-link {
 .contact-social i:hover {
     color: #818181;
 }
-.contact-form {
-}
-.contact-form h3 {
-    font-size: 28px;
-}
 /* ==========================================================================
    #Last Screen
    ========================================================================== */
 .introduction-end {
-    background: url()no-repeat right top;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
