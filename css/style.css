@@ -489,7 +489,8 @@ h5 {
     background-color: #000;
 }
 .content {
-    width: 804px;
+    /* width: 804px; */
+    width: 10%;
     overflow-y: scroll;
     height: 100%;
     float: left;
