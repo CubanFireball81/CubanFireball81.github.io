@@ -490,7 +490,7 @@ h5 {
 }
 .content {
     /* width: 804px; */
-    width: 10%;
+    width: 800px;
     overflow-y: scroll;
     height: 100%;
     float: left;
